@@ -13,3 +13,4 @@ Route::POST('/', [UserController::class, 'index']);
 
 Route::POST('/update', [UserController::class, 'update']);
 Route::delete('/delete', [UserController::class, 'destroy']);
+Route::get('/index', [UserController::class, 'getUserData']);
