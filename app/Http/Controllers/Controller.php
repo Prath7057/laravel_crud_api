@@ -35,7 +35,7 @@ abstract class Controller
         get();
 
         // ->value('omly_option','omly_value');
-        
+
         // ->map(function ($items) {
         //     foreach($items->toArray() as $key => $value){
         //         if (is_null($value) || $value == '') {
@@ -87,11 +87,6 @@ abstract class Controller
         //     }
         //     return $items; 
         // });
-
-        return response()->json([
-            'success' => true,
-            'data' => $data
-        ]);
 
         return response()->json([
             'success' => true,
