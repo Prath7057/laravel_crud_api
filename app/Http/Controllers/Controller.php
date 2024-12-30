@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\omlayout;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 abstract class Controller
@@ -24,6 +25,8 @@ abstract class Controller
         // ->whereNotBetween('omly_id',[10,20])
 
         // ->orderBy('omly_id','desc')
+        
+        pluck();
 
         // ->skip(2)
         // ->take(1)
@@ -32,7 +35,7 @@ abstract class Controller
         // ->groupBy('omly_panel_name')
         // ->having('count', '>',0)
 
-        get();
+        // get();
 
         // ->value('omly_option','omly_value');
 
@@ -91,6 +94,21 @@ abstract class Controller
         return response()->json([
             'success' => true,
             'data' => $data
+        ]);
+    }
+    //
+    public function insertUserData1 (Request $request) {
+        $validatedData = $request->validate([
+            'omly_own_id' => 'required',
+            'omly_option' => 'required',
+            'omly_value' => 'required',
+        ]);
+    
+        $omlayout = omlayout::create($validatedData);
+        //
+        return response()->json([
+            'success' => true,
+            'message' => 'Data inserted successfully',
         ]);
     }
 }
